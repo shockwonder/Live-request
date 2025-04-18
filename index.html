@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +27,8 @@
       background: #222;
       padding: 20px;
       border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
     }
     input, textarea, button {
       display: block;
@@ -45,22 +48,29 @@
 </head>
 <body>
   <h1>Your Live Stream</h1>
+
   <!-- Twitch live stream embed -->
   <iframe
-    src="https://player.twitch.tv/?channel=playingkris&parent=localhost"
+    src="https://player.twitch.tv/?channel=playingkris&parent=streamrequest.netlify.app"
     height="400"
     width="90%"
     allowfullscreen>
-  </iframe>  <form id="requestForm">
+  </iframe>
+
+  <form id="requestForm">
     <h2>Submit a Request</h2>
     <textarea id="message" placeholder="Your request..." required></textarea>
     <input type="number" id="amount" placeholder="Amount in BNB" step="0.0001" required />
     <button type="submit">Send Request</button>
     <p><small>Disclaimer: No refunds for declined requests.</small></p>
-  </form>  <div id="requests">
+  </form>
+
+  <div id="requests">
     <h2>Submitted Requests</h2>
     <ul id="requestList"></ul>
-  </div>  <script>
+  </div>
+
+  <script>
     const walletAddress = "0xf3a197f9a0b5b9c747c4c02525eee8832f647496";
 
     document.getElementById("requestForm").addEventListener("submit", async (e) => {
@@ -96,5 +106,6 @@
         alert("Transaction failed.");
       }
     });
-  </script></body>
+  </script>
+</body>
 </html>
